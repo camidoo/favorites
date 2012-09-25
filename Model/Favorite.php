@@ -57,8 +57,8 @@ class Favorite extends AppModel {
  * @param int $limit Number of list items to get in each category (defaults to 100).
  * @return void
  */
-	public function getFavoriteLists($type, $userId, $limit = 100) {
-		$listItems = $this->getFavorites($userId, array('type' => $type));
+	public function getFavoriteLists($type, $userId, $limit = 100, $options = array()) {
+		$listItems = $this->getFavorites($userId, array('type' => $type) + $options);
 		$list = array();
 		$categoryCounts = array();
 		foreach ($listItems as $item) {
